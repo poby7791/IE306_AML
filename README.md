@@ -1,3 +1,1 @@
-Dataset source : https://cseweb.ucsd.edu/~jmcauley/datasets.html#amazon_reviews
-
-2018 dataset : https://cseweb.ucsd.edu/~jmcauley/datasets/amazon_v2/
+#레스토랑 추천 시스템 페르소나 생성기 & AI Agent
