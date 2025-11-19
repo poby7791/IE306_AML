@@ -26,6 +26,8 @@ if st.sidebar.button("추천 받기 (Recommend)", type="primary"):
             if response.status_code != 200:
                 # 서버에서 보낸 오류 메시지 표시
                 st.error(f"서버 오류 발생: {response.json().get('detail')}")
+                st.text("▼ 서버가 보낸 에러 메시지 ▼")
+                st.code(response.text)
             else:
                 # 2. '내 컴퓨터(서버)'에서 계산된 JSON 결과 수신
                 result_data = response.json()
@@ -61,6 +63,7 @@ if st.sidebar.button("추천 받기 (Recommend)", type="primary"):
 else:
 
     st.info("왼쪽 사이드바에서 페르소나를 설명하고 '추천 받기' 버튼을 눌러주세요.")
+
 
 
 
