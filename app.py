@@ -10,10 +10,6 @@ st.title("🤖 리뷰 기반 페르소나 추천 시스템")
 
 st.sidebar.header("👤 페르소나 생성기")
 persona_free_text = st.sidebar.text_area(
-    "자신에 대해 자유롭게 설명해주세요 (예: 리뷰 경험, 선호도)",
-    "저는 리뷰를 50번 정도 남겼고, 'useful'도 20개쯤 받았어요. "
-    "작년에 Elite 멤버였습니다. "
-    "저는 주로 배터리 수명(battery life)과 훌륭한(great) 서비스를 중요하게 생각합니다.",
     height=150
 )
 
@@ -92,3 +88,4 @@ if st.sidebar.button("추천 받기 (Recommend)", type="primary"):
             
 else:
     st.info("왼쪽 사이드바에서 정보를 입력하고 '추천 받기' 버튼을 눌러주세요.")
+
