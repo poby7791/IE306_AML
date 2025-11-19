@@ -28,8 +28,8 @@ if st.sidebar.button("추천 받기 (Recommend)", type="primary"):
             else:
                 # 2. '내 컴퓨터(서버)'에서 계산된 JSON 결과 수신
                 result_data = response.json()
-                recs = result_data.get("recommendations")
-                parsed_persona = result_data.get("parsed_persona")
+                recs = result_data.get("recs") 
+                parsed_persona = result_data.get("persona")
 
                 # 3. 결과 출력
                 st.subheader("LLM이 분석한 페르소나 (서버 결과)")
@@ -60,5 +60,6 @@ if st.sidebar.button("추천 받기 (Recommend)", type="primary"):
 else:
 
     st.info("왼쪽 사이드바에서 페르소나를 설명하고 '추천 받기' 버튼을 눌러주세요.")
+
 
 
