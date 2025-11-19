@@ -2,7 +2,7 @@ import streamlit as st
 import requests
 
 # 🟢 중요: 4단계에서 ngrok 실행 후 이 URL을 수정해야 합니다.
-API_SERVER_URL = "https://uncomically-supervictorious-yan.ngrok-free.dev" 
+API_SERVER_URL = "https://uncomically-supervictorious-yan.ngrok-free.dev/recommend-persona/" 
 
 # --- Streamlit UI 설정 ---
 st.set_page_config(page_title="리뷰 기반 추천 시스템", layout="wide")
@@ -60,4 +60,5 @@ if st.sidebar.button("추천 받기 (Recommend)", type="primary"):
 else:
 
     st.info("왼쪽 사이드바에서 페르소나를 설명하고 '추천 받기' 버튼을 눌러주세요.")
+
 
