@@ -20,6 +20,7 @@ if st.sidebar.button("추천 받기 (Recommend)", type="primary"):
     # 1. '내 컴퓨터(서버)'로 API 요청 전송
     with st.spinner("페르소나 분석 및 추천 진행 중... (서버 응답 대기)"):
         try:
+            headers = {"ngrok-skip-browser-warning": "true"}
             response = requests.post(API_SERVER_URL, json={"free_text": persona_free_text})
             
             if response.status_code != 200:
@@ -60,6 +61,7 @@ if st.sidebar.button("추천 받기 (Recommend)", type="primary"):
 else:
 
     st.info("왼쪽 사이드바에서 페르소나를 설명하고 '추천 받기' 버튼을 눌러주세요.")
+
 
 
 
