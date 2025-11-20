@@ -38,27 +38,37 @@ UI_TEXT = {
     }
 }
 
-# 🟢 언어 선택 토글 (기본: 한국어)
-with st.sidebar:
-    is_english = st.toggle("English Mode", value=False)
-    lang_code = "en" if is_english else "kr"
-    txt = UI_TEXT[lang_code] # 현재 언어 텍스트 가져오기
+# 초기화 함수
+def reset_conversation():
+    st.session_state.messages = []
 
-st.title(txt["title"])
-st.caption(txt["caption"])
+# 🟢 [수정] 사이드바 제거 & 상단 레이아웃 구성 (제목 + 언어버튼)
+col1, col2 = st.columns([0.8, 0.2]) # 화면을 8:2 비율로 나눔
+
+with col2:
+    # 오른쪽 상단에 언어 스위치 배치
+    is_english = st.toggle("English", value=False, on_change=reset_conversation)
+    lang_code = "en" if is_english else "kr"
+    txt = UI_TEXT[lang_code]
+
+with col1:
+    # 왼쪽 상단에 제목 배치
+    st.title(txt["title"])
+    st.caption(txt["caption"])
+
+st.markdown("---") # 구분선 추가
 
 # 세션 초기화
-if "messages" not in st.session_state:
+if "messages" not in st.session_state or not st.session_state.messages:
     st.session_state.messages = [
         {"role": "assistant", "content": txt["welcome"]}
     ]
 
-# 기존 대화 출력
+# 대화 내용 출력
 for msg in st.session_state.messages:
     with st.chat_message(msg["role"]):
         if isinstance(msg["content"], dict) and "recs" in msg["content"]:
             data = msg["content"]
-            # 저장된 언어 설정 확인 (없으면 현재 설정 따름)
             msg_lang = msg.get("lang", lang_code) 
             msg_txt = UI_TEXT[msg_lang]
 
@@ -106,7 +116,6 @@ if prompt := st.chat_input(txt["input_placeholder"]):
                         else:
                             st.warning(txt["no_result"])
 
-                        # 대화 기록 저장 (현재 언어 코드 포함)
                         st.session_state.messages.append({
                             "role": "assistant", 
                             "content": {"persona": persona, "recs": recs},
@@ -120,4 +129,3 @@ if prompt := st.chat_input(txt["input_placeholder"]):
             
             except Exception as e:
                 st.error(f"{txt['error_conn']}: {e}")
-
