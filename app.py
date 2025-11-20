@@ -9,7 +9,7 @@ st.set_page_config(page_title="RecSys AI", layout="centered")
 # 🟢 다국어 텍스트 사전
 UI_TEXT = {
     "kr": {
-        "title": "🤖 AI 맛집 추천 챗봇",
+        "title": "AI 맛집 추천 챗봇",
         "caption": "당신의 취향이나 상황(MBTI, 기분 등)을 자유롭게 말해주세요!",
         "welcome": "안녕하세요! 어떤 식당을 찾으시나요? (예: '나 우울해', 'ENFP랑 갈 곳')",
         "input_placeholder": "여기에 입력하세요...",
@@ -23,7 +23,7 @@ UI_TEXT = {
         "no_result": "추천 결과가 없습니다."
     },
     "en": {
-        "title": "🤖 AI Restaurant Recommender",
+        "title": "AI Restaurant Recommender",
         "caption": "Tell me about your preference, mood, or MBTI!",
         "welcome": "Hello! What kind of restaurant are you looking for? (e.g., 'I'm sad', 'Date spot for ENFP')",
         "input_placeholder": "Type here...",
@@ -129,3 +129,4 @@ if prompt := st.chat_input(txt["input_placeholder"]):
             
             except Exception as e:
                 st.error(f"{txt['error_conn']}: {e}")
+
