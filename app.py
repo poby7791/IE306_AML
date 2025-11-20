@@ -58,7 +58,7 @@ with st.sidebar:
     # 관리자 모드 활성화 체크박스
     if st.checkbox("Admin Access"):
         password = st.text_input("Password", type="password")
-        if password == "1234": # 🟢 비밀번호 설정
+        if password == "qogocksWkd": # 🟢 비밀번호 설정
             st.success("Unlocked!")
             st.markdown("### Model Switching")
             model_option = st.radio(
@@ -157,5 +157,6 @@ if prompt := st.chat_input(txt["input_placeholder"]):
             
             except Exception as e:
                 st.error(f"{txt['error_conn']}: {e}")
+
 
 
