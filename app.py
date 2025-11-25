@@ -53,7 +53,7 @@ with col2:
     txt = UI_TEXT[lang_code]
     
     # Top-K 선택 (1~10)
-    top_k = st.selectbox(txt["top_k_label"], options=list(range(1, 11)), index=4) # 기본값 5
+    top_k = st.selectbox(txt["top_k_label"], options=list(range(1, 11)), index=2) # 기본값 5
 
 with col1:
     st.title(txt["title"])
@@ -68,7 +68,7 @@ with st.sidebar:
     # 관리자 접근 체크박스
     if st.checkbox("Admin Access"):
         password = st.text_input("Password", type="password")
-        if password == "1234": # 🟢 비밀번호
+        if password == "gocksWkd": # 🟢 비밀번호
             st.success("Unlocked!")
             st.markdown("### 🎛️ Experiment Matrix")
             
@@ -211,6 +211,7 @@ if prompt := st.chat_input(txt["input_placeholder"]):
             
             except Exception as e:
                 st.error(f"{txt['error_conn']}: {e}")
+
 
 
 
