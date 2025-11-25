@@ -76,7 +76,7 @@ with st.sidebar:
             m_col, p_col = st.columns(2)
             
             with m_col:
-                st.markdown("**Model (Row)**")
+                st.markdown("**Model**")
                 model_option = st.radio(
                     "Select Model",
                     ("Baseline (Meta)", "Review (Text)", "Hybrid (All)"),
@@ -85,7 +85,7 @@ with st.sidebar:
                 )
             
             with p_col:
-                st.markdown("**Prompt (Col)**")
+                st.markdown("**Prompt**")
                 prompt_option = st.radio(
                     "Select Prompt",
                     ("Simple (Fact)", "Persona (Feel)", "Analytical (Logic)"),
@@ -211,6 +211,7 @@ if prompt := st.chat_input(txt["input_placeholder"]):
             
             except Exception as e:
                 st.error(f"{txt['error_conn']}: {e}")
+
 
 
 
